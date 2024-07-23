@@ -44,9 +44,7 @@ public partial class BluesoftBankContext : DbContext
             entity.Property(e => e.Tipodecuenta).HasColumnName("TIPODECUENTA");
             entity.Property(e => e.Tipodepersona).HasColumnName("TIPODEPERSONA");
 
-            entity.HasOne(d => d.TipodepersonaNavigation).WithMany(p => p.Clientes)
-                .HasForeignKey(d => d.Tipodepersona)
-                .HasConstraintName("FK_CLIENTES_TIPODEPERSONA");
+           
         });
 
         modelBuilder.Entity<Movimiento>(entity =>
@@ -60,10 +58,9 @@ public partial class BluesoftBankContext : DbContext
             entity.Property(e => e.Idcliente).HasColumnName("IDCLIENTE");
             entity.Property(e => e.Tipodemovimiento).HasColumnName("TIPODEMOVIMIENTO");
             entity.Property(e => e.Valor).HasColumnName("VALOR");
+            entity.Property(e => e.Movimientolocal).HasColumnName("movimientolocal");
 
-            entity.HasOne(d => d.IdclienteNavigation).WithMany(p => p.Movimientos)
-                .HasForeignKey(d => d.Idcliente)
-                .HasConstraintName("FK_MOVIMIENTO_CLIENTES");
+
         });
 
         modelBuilder.Entity<Tipodemovimiento>(entity =>

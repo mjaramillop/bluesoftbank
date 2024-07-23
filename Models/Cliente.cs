@@ -15,7 +15,5 @@ public  class Cliente
 
     public int? Tipodepersona { get; set; }
 
-    public virtual ICollection<Movimiento> Movimientos { get; set; } = new List<Movimiento>();
-
-    public virtual Tipodepersona? TipodepersonaNavigation { get; set; }
+  
 }

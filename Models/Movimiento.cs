@@ -15,5 +15,5 @@ public  class Movimiento
 
     public DateTime? Fecha { get; set; }
 
-    public virtual Cliente? IdclienteNavigation { get; set; }
+   public string Movimientolocal { get; set; }
 }

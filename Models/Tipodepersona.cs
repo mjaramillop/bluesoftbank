@@ -9,5 +9,5 @@ public class Tipodepersona
 
     public string? Tipodepersona1 { get; set; }
 
-    public virtual ICollection<Cliente> Clientes { get; set; } = new List<Cliente>();
+   
 }
