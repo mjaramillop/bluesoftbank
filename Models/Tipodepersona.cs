@@ -5,9 +5,9 @@ namespace bluesoftbank.Models;
 
 public class Tipodepersona
 {
-    public int Id { get; set; }
+    public int id { get; set; }
 
-    public string? Tipodepersona1 { get; set; }
+    public string? tipodepersona { get; set; }
 
    
 }

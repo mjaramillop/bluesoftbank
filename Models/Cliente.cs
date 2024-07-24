@@ -1,19 +1,33 @@
-﻿using System;
+﻿using Microsoft.Identity.Client;
+using System;
 using System.Collections.Generic;
 
 namespace bluesoftbank.Models;
 
 public  class Cliente
 {
-    public int Id { get; set; }
 
-    public string? Nombre { get; set; }
 
-    public int? Saldo { get; set; }
+    public Cliente()
+    {
+        this.id = 0;
+        this.nombre = "";
+        this.saldo = 0;
+        this.tipodecuenta = 0;  
+        this.tipodepersona = 0;
 
-    public int? Tipodecuenta { get; set; }
 
-    public int? Tipodepersona { get; set; }
+    }
+
+    public int id { get; set; }
+
+    public string nombre { get; set; }
+
+    public int saldo { get; set; }
+
+    public int tipodecuenta { get; set; }
+
+    public int tipodepersona { get; set; }
 
   
 }

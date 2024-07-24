@@ -5,9 +5,9 @@ namespace bluesoftbank.Models;
 
 public  class Tipodemovimiento
 {
-    public int Id { get; set; }
+    public int id { get; set; }
 
-    public string? Nombre { get; set; }
+    public string? nombre { get; set; }
 
-    public string? DebitoCredito { get; set; }
+    public string? debitocredito { get; set; }
 }

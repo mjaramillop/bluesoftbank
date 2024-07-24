@@ -35,14 +35,14 @@ public partial class BluesoftBankContext : DbContext
         {
             entity.ToTable("CLIENTES");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Nombre)
+            entity.Property(e => e.id).HasColumnName("ID");
+            entity.Property(e => e.nombre)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("NOMBRE");
-            entity.Property(e => e.Saldo).HasColumnName("SALDO");
-            entity.Property(e => e.Tipodecuenta).HasColumnName("TIPODECUENTA");
-            entity.Property(e => e.Tipodepersona).HasColumnName("TIPODEPERSONA");
+            entity.Property(e => e.saldo).HasColumnName("SALDO");
+            entity.Property(e => e.tipodecuenta).HasColumnName("TIPODECUENTA");
+            entity.Property(e => e.tipodepersona).HasColumnName("TIPODEPERSONA");
 
            
         });
@@ -51,14 +51,20 @@ public partial class BluesoftBankContext : DbContext
         {
             entity.ToTable("MOVIMIENTO");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Fecha)
+            entity.Property(e => e.id).HasColumnName("ID");
+            entity.Property(e => e.fecha)
                 .HasColumnType("datetime")
                 .HasColumnName("FECHA");
-            entity.Property(e => e.Idcliente).HasColumnName("IDCLIENTE");
-            entity.Property(e => e.Tipodemovimiento).HasColumnName("TIPODEMOVIMIENTO");
-            entity.Property(e => e.Valor).HasColumnName("VALOR");
-            entity.Property(e => e.Movimientolocal).HasColumnName("movimientolocal");
+            entity.Property(e => e.idcliente).HasColumnName("IDCLIENTE");
+            entity.Property(e => e.tipodemovimiento).HasColumnName("TIPODEMOVIMIENTO");
+            entity.Property(e => e.valor).HasColumnName("VALOR");
+            entity.Property(e => e.movimientolocal).HasColumnName("movimientolocal");
+            entity.Property(e => e.mensajedeerror).HasColumnName("mensajedeerror");
+            entity.Property(e => e.nombrecliente).HasColumnName("nombrecliente");
+            entity.Property(e => e.movimientodebitoocredito).HasColumnName("movimientodebitoocredito");
+            entity.Property(e => e.nombremovimiento).HasColumnName("nombremovimiento");
+
+
 
 
         });
@@ -67,12 +73,12 @@ public partial class BluesoftBankContext : DbContext
         {
             entity.ToTable("TIPODEMOVIMIENTO");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.DebitoCredito)
+            entity.Property(e => e.id).HasColumnName("ID");
+            entity.Property(e => e.debitocredito)
                 .HasMaxLength(1)
                 .IsUnicode(false)
                 .HasColumnName("DEBITO_CREDITO");
-            entity.Property(e => e.Nombre)
+            entity.Property(e => e.nombre)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("NOMBRE");
@@ -82,8 +88,8 @@ public partial class BluesoftBankContext : DbContext
         {
             entity.ToTable("TIPODEPERSONA");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Tipodepersona1)
+            entity.Property(e => e.id).HasColumnName("ID");
+            entity.Property(e => e.tipodepersona)
                 .HasMaxLength(30)
                 .IsUnicode(false)
                 .HasColumnName("TIPODEPERSONA");
@@ -93,8 +99,8 @@ public partial class BluesoftBankContext : DbContext
         {
             entity.ToTable("TIPOSDECUENTA");
 
-            entity.Property(e => e.Id).HasColumnName("ID");
-            entity.Property(e => e.Nombre)
+            entity.Property(e => e.id).HasColumnName("ID");
+            entity.Property(e => e.nombre)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("NOMBRE");
