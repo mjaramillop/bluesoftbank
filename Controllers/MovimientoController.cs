@@ -6,7 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace bluesoftbank.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]/[action]")]
+
     [ApiController]
     public class MovimientoController : ControllerBase
     {
@@ -21,21 +22,48 @@ namespace bluesoftbank.Controllers
 
 
 
-        // GET: api/<MovimientoController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
+     
 
         // POST api/<MovimientoController>
         [HttpPost]
+        [ActionName("Add")]
         public List<Movimiento> Add( Movimiento obj)
         {
           return   _service.Add(obj);  
         }
 
-       
+
+        [HttpPost]
+        [ActionName("ConsultarMovimiento")]
+        public List<Movimiento> ConsultarMovimiento(Movimiento obj)
+        {
+            return _service.ConsultarMovimiento(obj);
+        }
+
+
+        [HttpPost]
+        [ActionName("Extracto")]
+        public List<Movimiento> Extracto(Movimiento obj)
+        {
+            return _service.Extracto(obj);
+        }
+
+
+
+        [HttpPost]
+        [ActionName("TotalTransaccionesPorMes")]
+        public List<Movimiento> TotalTransaccionesPorMes(Movimiento obj)
+        {
+            return _service.TotalTransaccionesPorMes(obj);
+        }
+
+
+        [HttpGet]
+        [ActionName("RetirosFueraDeLaCiudad")]
+        public List<Movimiento> RetirosFueraDeLaCiudad()
+        {
+            return _service.RetirosFueraDeLaCiudad();
+        }
 
     }
 }

@@ -19,7 +19,33 @@ namespace bluesoftbank.Services
             return list;
         }
 
-      
+
+        public List<Movimiento> ConsultarMovimiento(Movimiento obj)
+        {
+            List<Movimiento> list = _access.ConsultarMovimiento(obj);
+            return list;
+        }
+
+
+        public List<Movimiento> Extracto(Movimiento obj)
+        {
+            List<Movimiento> list = _access.Extracto(obj);
+            return list;
+        }
+
+
+        public List<Movimiento> TotalTransaccionesPorMes(Movimiento obj)
+        {
+            List<Movimiento> list = _access.TotalTransaccionesPorMes(obj);
+            return list;
+        }
+
+
+        public List<Movimiento> RetirosFueraDeLaCiudad()
+        {
+            List<Movimiento> list = _access.RetirosFueraDeLaCiudad();
+            return list;
+        }
 
     }
 }

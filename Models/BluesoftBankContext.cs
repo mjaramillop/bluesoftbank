@@ -19,11 +19,11 @@ public partial class BluesoftBankContext : DbContext
 
     public virtual DbSet<Movimiento> Movimientos { get; set; }
 
-    public virtual DbSet<Tipodemovimiento> Tipodemovimientos { get; set; }
+    public virtual DbSet<TipoDeMovimiento> TipoDeMovimiento { get; set; }
 
-    public virtual DbSet<Tipodepersona> Tipodepersonas { get; set; }
+    public virtual DbSet<TipoDePersona> TipoDePersona { get; set; }
 
-    public virtual DbSet<Tiposdecuenta> Tiposdecuenta { get; set; }
+    public virtual DbSet<TipoDeCuenta> TipoDeCuenta { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -69,7 +69,7 @@ public partial class BluesoftBankContext : DbContext
 
         });
 
-        modelBuilder.Entity<Tipodemovimiento>(entity =>
+        modelBuilder.Entity<TipoDeMovimiento>(entity =>
         {
             entity.ToTable("TIPODEMOVIMIENTO");
 
@@ -84,20 +84,20 @@ public partial class BluesoftBankContext : DbContext
                 .HasColumnName("NOMBRE");
         });
 
-        modelBuilder.Entity<Tipodepersona>(entity =>
+        modelBuilder.Entity<TipoDePersona>(entity =>
         {
             entity.ToTable("TIPODEPERSONA");
 
             entity.Property(e => e.id).HasColumnName("ID");
-            entity.Property(e => e.tipodepersona)
+            entity.Property(e => e.nombre)
                 .HasMaxLength(30)
                 .IsUnicode(false)
-                .HasColumnName("TIPODEPERSONA");
+                .HasColumnName("NOMBRE");
         });
 
-        modelBuilder.Entity<Tiposdecuenta>(entity =>
+        modelBuilder.Entity<TipoDeCuenta>(entity =>
         {
-            entity.ToTable("TIPOSDECUENTA");
+            entity.ToTable("TIPODECUENTA");
 
             entity.Property(e => e.id).HasColumnName("ID");
             entity.Property(e => e.nombre)

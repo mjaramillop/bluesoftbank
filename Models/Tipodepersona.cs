@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace bluesoftbank.Models;
 
-public class Tipodepersona
+public class TipoDePersona
 {
     public int id { get; set; }
 
-    public string? tipodepersona { get; set; }
+    public string nombre { get; set; }
 
    
 }

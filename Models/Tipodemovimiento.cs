@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace bluesoftbank.Models;
 
-public  class Tipodemovimiento
+public  class TipoDeMovimiento
 {
     public int id { get; set; }
 

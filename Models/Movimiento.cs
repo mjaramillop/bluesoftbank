@@ -34,7 +34,7 @@ public  class Movimiento
 
     public int valor { get; set; }
 
-    public DateTime? fecha { get; set; }
+    public DateTime fecha { get; set; }
 
    public string movimientolocal { get; set; }
 

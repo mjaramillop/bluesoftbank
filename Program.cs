@@ -13,12 +13,39 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 
-// captura de movimiento
+// 
 builder.Services.AddScoped<MovimientoAccess>();
 builder.Services.AddScoped<MovimientoService>();
+
+builder.Services.AddScoped<ClienteAccess>();
+builder.Services.AddScoped<ClienteService>();
+
+
+builder.Services.AddScoped<TipoDeMovimientoAccess>();
+builder.Services.AddScoped<TipoDeMovimientoService>();
+
+builder.Services.AddScoped<TipoDePersonaAccess>();
+builder.Services.AddScoped<TipoDePersonaService>();
+
+builder.Services.AddScoped<TipoDeCuentaAccess>();
+builder.Services.AddScoped<TipoDeCuentaService>();
+
+
+
+
 // conexion de datos
 
 builder.Services.AddDbContext<BluesoftBankContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("connectionstring")));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ReactJSDomain", policy => policy.AllowAnyOrigin()
+    .AllowAnyHeader()
+    .AllowAnyMethod()
+    .AllowAnyOrigin()
+    .WithExposedHeaders("content-disposition")
+    );
+});
 
 
 var app = builder.Build();
@@ -35,5 +62,14 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+
+app.UseCors("ReactJSDomain");
+
+app.UseCors(builder => builder
+       .AllowAnyHeader()
+       .AllowAnyMethod()
+       .AllowAnyOrigin()
+    );
 
 app.Run();
